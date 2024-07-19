@@ -3,7 +3,7 @@ import sys
 
 def main(argv):
     if len(argv) != 1:
-        print("Usage: my_cli_app <name>")
+        print("Usage: shiv_cli_example <name>")
         sys.exit(1)
 
     name = argv[0]

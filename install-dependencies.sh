@@ -9,4 +9,4 @@ rm -f ${deb}
 
 
 pipenv install --ignore-pipfile
-git config --global --add safe.directory /workspaces/my_cli_app
+git config --global --add safe.directory /workspaces/shiv-cli-example
