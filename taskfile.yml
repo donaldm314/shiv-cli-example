@@ -55,3 +55,4 @@ tasks:
     deps: [flake8, test, requirements]
     cmds:
       - shiv -o my_cli_app.pyz -p '/usr/bin/env python3' --site-packages $(pipenv --venv)/lib/python3.12/site-packages -e my_cli_app.cli:main
+      - ./my_cli_app.pyz --help
