@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+dropbox = "*"
+python-dotenv = "*"
+flake8 = "*"
+tinyhtml = "*"
+pytest = "*"
+setuptools = "*"
+shiv = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"

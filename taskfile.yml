@@ -1,0 +1,57 @@
+# https://taskfile.dev
+
+version: '3.38'
+
+interval: '100ms'
+
+vars:
+
+tasks:
+  default:
+    desc: "Syntax check and unit test"
+    deps: [flake8, test]
+
+  watch:
+    desc: "Watch flake8 and unit tests"
+    deps: [flake8, test]
+    watch: true
+    sources:
+      - '**/*.py'
+      - '*.yml'
+
+  flake8:
+    aliases: [static]
+    desc: "Static analysis"
+    watch: true
+    cmds:
+      - flake8
+
+  test:
+    desc: "Unit tests"
+    watch: true
+    cmds:
+      - pytest
+
+  kick:
+    desc: Kick the CICD pipeline.
+    vars:
+      KICK: "$(pwd)/.kick-pipeline"
+    cmds:
+      - |
+        date > {{.KICK}}
+        git add {{.KICK}}
+        git ci -m "kick"
+        git push
+
+  requirements:
+    desc: Generate a requirements.txt file
+    cmds:
+      - |
+        pipenv lock
+        pipenv requirements > requirements.txt
+
+  shiv:
+    desc: Generate an executable python zip file
+    deps: [flake8, test, requirements]
+    cmds:
+      - shiv -o my_cli_app.pyz -p '/usr/bin/env python3' --site-packages $(pipenv --venv)/lib/python3.12/site-packages -e my_cli_app.cli:main
