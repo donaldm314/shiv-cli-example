@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "ec3e18ff48a2951984aaa74bdfb30f15cf8bc27a84dd2512466b02fce6b435a7"
+            "sha256": "e2fb27ee874bd20dad4d96c9cb9e11d869fd9143731567e0e0ada0b888dc3e2b"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -169,6 +169,9 @@
             ],
             "markers": "python_version >= '3.6'",
             "version": "==0.7.0"
+        },
+        "my-cli-app": {
+            "file": "."
         },
         "packaging": {
             "hashes": [

@@ -11,6 +11,7 @@ tinyhtml = "*"
 pytest = "*"
 setuptools = "*"
 shiv = "*"
+my-cli-app = {file = "."}
 
 [dev-packages]
 
