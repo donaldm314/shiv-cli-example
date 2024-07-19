@@ -49,6 +49,7 @@ tasks:
     cmds:
       - echo "FROM {{.DEVCONTAINER_PREFIX}}${MY_PYTHON_VERSION}-bookworm" > Dockerfile
       - sed -i -r -e "s,([ ]+container.[ ]+).*,\1{{.DEVCONTAINER_PREFIX}}${MY_PYTHON_VERSION}-bookworm," {{.GITHUB_ACTIONS}}
+      - sed -i -r -e "s,^python_version = \".*\",python_version = \"${MY_PYTHON_VERSION}\"," Pipfile
     requires:
       vars: [MY_PYTHON_VERSION]
 
