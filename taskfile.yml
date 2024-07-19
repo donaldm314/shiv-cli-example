@@ -46,3 +46,4 @@ tasks:
     cmds:
       - shiv -o shiv_cli_example.pyz -p '/usr/bin/env python3' --site-packages $(pipenv --venv)/lib/python3.12/site-packages -e shiv_cli_example.cli:main
       - ./shiv_cli_example.pyz --help
+      - ./shiv_cli_example.pyz -h
