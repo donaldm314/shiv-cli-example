@@ -14,5 +14,8 @@ jobs:
           ./install-dependencies.sh
           which task
           task --version
-      - name: "Lint and test"
-        run: 'task'
+      - name: "Build shiv"
+        run: |
+          task
+          task shiv
+
