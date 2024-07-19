@@ -1,15 +1,12 @@
 #!/bin/bash
 
-# Is task already installed?
-which task
-rc=$?
-
 set -e 
-if [ 0 -ne $rc ]; then
-    deb='task_linux_amd64.deb'
-    wget https://github.com/go-task/task/releases/download/v3.37.2/${deb}
-    sudo dpkg -i ${deb}
-    rm -f ${deb}
-fi
+
+deb='task_linux_amd64.deb'
+wget https://github.com/go-task/task/releases/download/v3.38.0/${deb}
+sudo dpkg -i ${deb}
+rm -f ${deb}
+
 
 pipenv install --ignore-pipfile
+git config --global --add safe.directory /workspaces/my_cli_app
