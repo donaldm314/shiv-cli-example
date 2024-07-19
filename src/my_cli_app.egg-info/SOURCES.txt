@@ -1,7 +1,0 @@
-setup.py
-src/my_cli_app.egg-info/PKG-INFO
-src/my_cli_app.egg-info/SOURCES.txt
-src/my_cli_app.egg-info/dependency_links.txt
-src/my_cli_app.egg-info/entry_points.txt
-src/my_cli_app.egg-info/top_level.txt
-tests/test_johnny_decimal.py
