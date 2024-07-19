@@ -4,7 +4,7 @@
 	"build": {
 		"dockerfile": "../Dockerfile"
 	},
-	"name": "Python 3.12",
+	"name": "Python",
 	"customizations": {
 		"vscode": {
 			"extensions": [
