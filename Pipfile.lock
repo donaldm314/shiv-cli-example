@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "e2fb27ee874bd20dad4d96c9cb9e11d869fd9143731567e0e0ada0b888dc3e2b"
+            "sha256": "aac5e4de8151af427c921dd934e83ad6896b66dc4a8046d0365dfdfbed8b3337"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -262,7 +262,7 @@
             "version": "==1.0.6"
         },
         "shiv-cli-example": {
-            "version": "==0.1.0"
+            "file": "."
         },
         "six": {
             "hashes": [
