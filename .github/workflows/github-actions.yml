@@ -14,8 +14,8 @@ jobs:
           ./install-dependencies.sh
           which task
           task --version
-      - name: "Build shiv"
-        run: |
-          pipenv run task
-          pipenv run task shiv
+      - name: "Build"
+        run: pipenv run task
+      - name: "Create shiv"
+        run: pipenv run task shiv
 
