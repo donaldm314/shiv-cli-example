@@ -5,6 +5,8 @@ version: '3.38'
 interval: '100ms'
 
 vars:
+  GITHUB_ACTIONS: .github/workflows/github-actions.yml
+  DEVCONTAINER_PREFIX: 'mcr.microsoft.com/devcontainers/python:1-'
 
 dotenv: ['common.sh']
 
@@ -45,14 +47,15 @@ tasks:
   setup:
     desc: Write some files
     cmds:
-      - echo "FROM mcr.microsoft.com/devcontainers/python:1-${MY_PYTHON_VERSION}-bookworm" > Dockerfile
+      - echo "FROM {{.DEVCONTAINER_PREFIX}}${MY_PYTHON_VERSION}-bookworm" > Dockerfile
+      - sed -i -r -e "s,([ ]+container.[ ]+).*,\1{{.DEVCONTAINER_PREFIX}}${MY_PYTHON_VERSION}-bookworm," {{.GITHUB_ACTIONS}}
     requires:
       vars: [MY_PYTHON_VERSION]
 
 
   shiv:
     desc: Generate an executable python zip file
-    deps: [flake8, test, requirements]
+    deps: [setup, flake8, test, requirements]
     cmds:
       - shiv -o shiv_cli_example.pyz -p '/usr/bin/env python3' --site-packages $(pipenv --venv)/lib/python${MY_PYTHON_VERSION}/site-packages -e shiv_cli_example.cli:main
       - ./shiv_cli_example.pyz --help
