@@ -1,1 +1,0 @@
-export MY_PYTHON_VERSION='3.12'

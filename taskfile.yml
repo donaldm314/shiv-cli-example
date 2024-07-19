@@ -7,8 +7,8 @@ interval: '100ms'
 vars:
   GITHUB_ACTIONS: .github/workflows/github-actions.yml
   DEVCONTAINER_PREFIX: 'mcr.microsoft.com/devcontainers/python:1-'
+  MY_PYTHON_VERSION: 3.12
 
-dotenv: ['common.sh']
 
 tasks:
   default:
@@ -47,9 +47,9 @@ tasks:
   setup:
     desc: Write some files
     cmds:
-      - echo "FROM {{.DEVCONTAINER_PREFIX}}${MY_PYTHON_VERSION}-bookworm" > Dockerfile
-      - sed -i -r -e "s,([ ]+container.[ ]+).*,\1{{.DEVCONTAINER_PREFIX}}${MY_PYTHON_VERSION}-bookworm," {{.GITHUB_ACTIONS}}
-      - sed -i -r -e "s,^python_version = \".*\",python_version = \"${MY_PYTHON_VERSION}\"," Pipfile
+      - echo "FROM {{.DEVCONTAINER_PREFIX}}{{.MY_PYTHON_VERSION}}-bookworm" > Dockerfile
+      - sed -i -r -e "s,([ ]+container.[ ]+).*,\1{{.DEVCONTAINER_PREFIX}}{{.MY_PYTHON_VERSION}}-bookworm," {{.GITHUB_ACTIONS}}
+      - sed -i -r -e "s,^python_version = \".*\",python_version = \"{{.MY_PYTHON_VERSION}}\"," Pipfile
     requires:
       vars: [MY_PYTHON_VERSION]
 
@@ -58,7 +58,7 @@ tasks:
     desc: Generate an executable python zip file
     deps: [setup, flake8, test, requirements]
     cmds:
-      - shiv -o shiv_cli_example.pyz -p '/usr/bin/env python3' --site-packages $(pipenv --venv)/lib/python${MY_PYTHON_VERSION}/site-packages -e shiv_cli_example.cli:main
+      - shiv -o shiv_cli_example.pyz -p '/usr/bin/env python3' --site-packages $(pipenv --venv)/lib/python{{.MY_PYTHON_VERSION}}/site-packages -e shiv_cli_example.cli:main
       - ./shiv_cli_example.pyz --help
       - ./shiv_cli_example.pyz -h
     requires:
