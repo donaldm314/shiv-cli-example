@@ -32,16 +32,6 @@ tasks:
     cmds:
       - pytest
 
-  kick:
-    desc: Kick the CICD pipeline.
-    vars:
-      KICK: "$(pwd)/.kick-pipeline"
-    cmds:
-      - |
-        date > {{.KICK}}
-        git add {{.KICK}}
-        git ci -m "kick"
-        git push
 
   requirements:
     desc: Generate a requirements.txt file
