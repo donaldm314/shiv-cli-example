@@ -6,7 +6,7 @@ setup(
     packages=find_packages(where='src'),
     package_dir={'': 'src'},
     install_requires=[
-        # List your dependencies here
+        'click',
     ],
     entry_points={
         'console_scripts': [
