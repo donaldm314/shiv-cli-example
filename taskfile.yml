@@ -59,11 +59,11 @@ tasks:
     deps: [setup, flake8, test, requirements]
     cmds:
       - |
-        shiv -o shiv_cli_example.pyz -p '/usr/bin/env python3' \
+        shiv -o shiv_cli.pyz -p '/usr/bin/env python3' \
           --site-packages \
           $(pipenv --venv)/lib/python{{.MY_PYTHON_VERSION}}/site-packages \
-          -e shiv_cli_example.cli:main
-      - ./shiv_cli_example.pyz --help
-      - ./shiv_cli_example.pyz -h
+          -e shiv_cli.cli:main
+      - ./shiv_cli.pyz --help
+      - ./shiv_cli.pyz -h
     requires:
       vars: [MY_PYTHON_VERSION]

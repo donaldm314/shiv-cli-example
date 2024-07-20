@@ -11,8 +11,6 @@ tinyhtml = "*"
 pytest = "*"
 setuptools = "*"
 shiv = "*"
-shiv_cli_example = {file = "."}
-
 [dev-packages]
 
 [requires]
