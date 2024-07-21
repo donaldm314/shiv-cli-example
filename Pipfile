@@ -11,6 +11,8 @@ tinyhtml = "*"
 pytest = "*"
 setuptools = "*"
 shiv = "*"
+colorama = "*"
+
 [dev-packages]
 
 [requires]
