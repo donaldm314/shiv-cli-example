@@ -7,7 +7,6 @@ interval: '100ms'
 vars:
   MY_PYTHON_VERSION: 3.12
 
-
 tasks:
   default:
     desc: "Syntax check and unit test"
@@ -34,7 +33,6 @@ tasks:
     cmds:
       - pytest
 
-
   requirements:
     desc: Generate a requirements.txt file
     cmds:
@@ -50,7 +48,6 @@ tasks:
         ./set_python_version.sh
     requires:
       vars: [MY_PYTHON_VERSION]
-
 
   shiv:
     desc: Generate an executable python zip file
