@@ -45,7 +45,9 @@ tasks:
   setup:
     desc: Write some files
     cmds:
-      - export MY_PYTHON_VERSION={{.MY_PYTHON_VERSION}}; ./set_python_version.sh
+      - |
+        export MY_PYTHON_VERSION={{.MY_PYTHON_VERSION}}; \
+        ./set_python_version.sh
     requires:
       vars: [MY_PYTHON_VERSION]
 
