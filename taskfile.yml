@@ -5,8 +5,6 @@ version: '3.38'
 interval: '100ms'
 
 vars:
-  GITHUB_ACTIONS: .github/workflows/github-actions.yml
-  DEVCONTAINER_PREFIX: 'mcr.microsoft.com/devcontainers/python:1-'
   MY_PYTHON_VERSION: 3.12
 
 
@@ -47,9 +45,7 @@ tasks:
   setup:
     desc: Write some files
     cmds:
-      - echo "FROM {{.DEVCONTAINER_PREFIX}}{{.MY_PYTHON_VERSION}}-bookworm" > Dockerfile
-      - sed -i -r -e "s,([ ]+container.[ ]+).*,\1{{.DEVCONTAINER_PREFIX}}{{.MY_PYTHON_VERSION}}-bookworm," {{.GITHUB_ACTIONS}}
-      - sed -i -r -e "s,^python_version = \".*\",python_version = \"{{.MY_PYTHON_VERSION}}\"," Pipfile
+      - export MY_PYTHON_VERSION={{.MY_PYTHON_VERSION}}; ./set_python_version.sh
     requires:
       vars: [MY_PYTHON_VERSION]
 
