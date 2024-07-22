@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Update the following files based on MY_PYTHON_VERSION, because DRY.
+DOCKERFILE=Dockerfile
+PIPFILE=Pipfile
+GITHUB_ACTIONS='.github/workflows/github-actions.yml'
+
+
 exit_code=0
 if [ -z ${MY_PYTHON_VERSION} ]; then
     echo "ERROR: MY_PYTHON_VERSION must be set!"
@@ -10,12 +16,7 @@ if [ 0 -ne $exit_code ]; then
     exit $exit_code
 fi
 
-
 set -e
-DOCKERFILE=Dockerfile
-PIPFILE=Pipfile
-GITHUB_ACTIONS='.github/workflows/github-actions.yml'
-
 
 write_dockerfile() {
     cat > ${DOCKERFILE} <<EOF
