@@ -1,5 +1,5 @@
 import click
-from .main import main as run_main
+from shiv_cli.main import main as run_main
 
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 

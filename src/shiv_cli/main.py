@@ -1,5 +1,5 @@
 import sys
-from .now import currentdate
+from shiv_cli.now import currentdate
 
 
 def main(argv):
