@@ -56,5 +56,6 @@ tasks:
       - shiv -o shiv_cli.pyz -p '/usr/bin/env python3' -e shiv_cli.cli:main .
       - ./shiv_cli.pyz --help
       - ./shiv_cli.pyz -h
+      - ./shiv_cli.pyz Don
     requires:
       vars: [MY_PYTHON_VERSION]
