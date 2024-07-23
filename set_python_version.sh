@@ -3,7 +3,7 @@
 # Update the following files based on MY_PYTHON_VERSION, because DRY.
 DOCKERFILE=Dockerfile
 PIPFILE=Pipfile
-GITHUB_ACTIONS='.github/workflows/github-actions.yml'
+GITHUB_ACTIONS='.github/workflows/ci.yml'
 
 
 exit_code=0
