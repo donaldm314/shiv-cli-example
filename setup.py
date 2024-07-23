@@ -7,7 +7,8 @@ setup(
     packages=find_packages(where="src"),
     install_requires=[
         'click',
-        'colorama'  # Need for ANSI on Windows
+        'colorama',  # Need for ANSI on Windows
+        'datetime'
     ],
     entry_points={
         'console_scripts': [

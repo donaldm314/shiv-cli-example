@@ -12,6 +12,7 @@ pytest = "*"
 setuptools = "*"
 shiv = "*"
 colorama = "*"
+datetime = "*"
 
 [dev-packages]
 

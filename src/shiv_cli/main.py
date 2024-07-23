@@ -1,4 +1,5 @@
 import sys
+from .now import currentdate
 
 
 def main(argv):
@@ -8,6 +9,7 @@ def main(argv):
 
     name = argv[0]
     print(f"Hello, {name}!")
+    print(f"Today's date is {currentdate()}.")
 
 
 if __name__ == '__main__':
